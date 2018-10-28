@@ -53,7 +53,12 @@
   }
 }
 
-@mixin modal($selector, $height, $width) {
+@mixin set-colors($background, $color) {
+  background-color: $background;
+  color: $color;
+}
+
+@mixin modal($selector, $height, $width, $bg1, $c1, $bg2, $c2) {
   #{$selector} {
     display: inline-block;
     > :last-child {
@@ -74,6 +79,13 @@
     &.show {
       > :last-child {
         display: grid;
+        grid-template-rows: repeat(auto-fit, 48px);
+        > :nth-child(odd) {
+          @include set-colors($bg1, $c1);
+        }
+        > :nth-child(even) {
+          @include set-colors($bg2, $c2);
+        }
       }
     }
   }
