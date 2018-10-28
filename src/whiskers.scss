@@ -1,0 +1,54 @@
+@mixin media-breakpoint-only($size) {
+  @if $size == xs {
+    @media screen and (min-width: 0px) and (max-width: 579.98) {
+      // Extra small viewport
+      @content;
+    }
+  }
+  @if $size == sm {
+    @media screen and (min-width: 0px) and (max-width: 579.98) {
+      // Small viewport
+      @content;
+    }
+  }
+  @if $size == md {
+    @media screen and (min-width: 0px) and (max-width: 579.98) {
+      // Medium viewport
+      @content;
+    }
+  }
+  @if $size == lg {
+    @media screen and (min-width: 0px) and (max-width: 579.98) {
+      // Large viewport
+      @content;
+    }
+  }
+  @if $size == xl {
+    @media screen and (min-width: 0px) and (max-width: 579.98) {
+      // Extra large viewport
+      @content;
+    }
+  }
+}
+
+@mixin media-query($minWidth: '', $maxWidth: '') {
+  @if ($minWidth == '' and $maxWidth == '') {
+    @media screen {
+      @content;
+    }
+  }
+  @if ($minWidth == '') {
+    @media screen and (max-width: $maxWidth) {
+      @content;
+    }
+  }
+  @if ($maxWidth == '') {
+    @media screen and (min-width: $maxWidth) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $maxWidth) and (max-width: $maxWidth) {
+      @content;
+    }
+  }
+}
