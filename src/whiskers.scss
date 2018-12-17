@@ -1,29 +1,33 @@
 @mixin media-breakpoint-only($size) {
-  @if $size == xs {
+  @if $size==xs {
     @media screen and (min-width: 0px) and (max-width: 579.98) {
       // Extra small viewport
       @content;
     }
   }
-  @if $size == sm {
+
+  @if $size==sm {
     @media screen and (min-width: 0px) and (max-width: 579.98) {
       // Small viewport
       @content;
     }
   }
-  @if $size == md {
+
+  @if $size==md {
     @media screen and (min-width: 0px) and (max-width: 579.98) {
       // Medium viewport
       @content;
     }
   }
-  @if $size == lg {
+
+  @if $size==lg {
     @media screen and (min-width: 0px) and (max-width: 579.98) {
       // Large viewport
       @content;
     }
   }
-  @if $size == xl {
+
+  @if $size==xl {
     @media screen and (min-width: 0px) and (max-width: 579.98) {
       // Extra large viewport
       @content;
@@ -32,21 +36,25 @@
 }
 
 @mixin media-query($minWidth: '', $maxWidth: '') {
-  @if ($minWidth == '' and $maxWidth == '') {
+  @if ($minWidth==''and $maxWidth=='') {
     @media screen {
       @content;
     }
   }
-  @if ($minWidth == '') {
+
+  @if ($minWidth=='') {
     @media screen and (max-width: $maxWidth) {
       @content;
     }
   }
-  @if ($maxWidth == '') {
+
+  @if ($maxWidth=='') {
     @media screen and (min-width: $maxWidth) {
       @content;
     }
-  } @else {
+  }
+
+  @else {
     @media screen and (min-width: $maxWidth) and (max-width: $maxWidth) {
       @content;
     }
@@ -64,7 +72,12 @@
   }
   #{$selector} {
     display: inline-block;
-  
+
+    .modal {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    > :last-child {
       left: 0px;
       top: 0;
       position: absolute;
@@ -73,23 +86,29 @@
       justify-content: center;
       height: 100%;
       width: 100%;
-      > * {
+
+      >* {
         z-index: 1455;
         height: $height;
+        min-width: 300px;
         width: $width;
       }
-    
+    }
+
     &.show {
       > :last-child {
         display: grid;
         grid-template-rows: repeat(auto-fit, 48px);
+
         > :nth-child(odd) {
           @include set-colors($bg1, $c1);
         }
+
         > :nth-child(even) {
           @include set-colors($bg2, $c2);
         }
       }
     }
+
   }
 }
