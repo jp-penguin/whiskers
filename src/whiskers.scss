@@ -59,9 +59,12 @@
 }
 
 @mixin modal($selector, $height, $width, $bg1, $c1, $bg2, $c2) {
+  .show{
+
+  }
   #{$selector} {
     display: inline-block;
-    > :last-child {
+  
       left: 0px;
       top: 0;
       position: absolute;
@@ -75,7 +78,7 @@
         height: $height;
         width: $width;
       }
-    }
+    
     &.show {
       > :last-child {
         display: grid;
